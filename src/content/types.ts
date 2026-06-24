@@ -13,6 +13,7 @@ export interface HomeContent {
     followUp: string;
   };
   aboutLinkLabel: string;
+  ambiancePhotoUrl?: string;
 }
 
 export interface AboutContent {
@@ -22,6 +23,7 @@ export interface AboutContent {
   expertise: string;
   credentials: string[];
   signature: string;
+  portraitPhotoUrl?: string;
 }
 
 export interface Service {

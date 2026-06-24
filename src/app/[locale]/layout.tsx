@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { siteSettings } from "@/content/site-settings";
+import { getSiteSettings } from "@/content";
 import { routing } from "@/i18n/routing";
 import { inter, playfairDisplay } from "@/lib/fonts";
 import "../globals.css";
@@ -12,6 +12,10 @@ import "../globals.css";
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+// Re-fetch Sanity content at most once a minute so editorial changes show up
+// without needing a redeploy.
+export const revalidate = 60;
 
 export async function generateMetadata({
   params,
@@ -21,7 +25,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
 
-  const settings = siteSettings[locale];
+  const settings = await getSiteSettings(locale);
   return {
     title: {
       default: settings.defaultTitle,
@@ -31,6 +35,9 @@ export async function generateMetadata({
   };
 }
 
+// This [locale] segment has no shared ancestor app/layout.tsx, so it forms
+// its own root layout (alongside /studio's) — see Next.js's "multiple root
+// layouts" pattern for top-level branches that shouldn't share one.
 export default async function LocaleLayout({
   children,
   params,

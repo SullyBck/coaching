@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getHomeContent, getTestimonials } from "@/content";
@@ -16,9 +17,11 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const content = getHomeContent(locale);
-  const testimonials = getTestimonials(locale);
-  const t = await getTranslations("common");
+  const [content, testimonials, t] = await Promise.all([
+    getHomeContent(locale),
+    getTestimonials(locale),
+    getTranslations("common"),
+  ]);
 
   return (
     <>
@@ -37,10 +40,22 @@ export default async function HomePage({
       </Section>
 
       <Container>
-        <PhotoPlaceholder
-          label={t("photoPlaceholder")}
-          className="aspect-[16/7] w-full"
-        />
+        {content.ambiancePhotoUrl ? (
+          <div className="relative aspect-[16/7] w-full overflow-hidden bg-sand/30">
+            <Image
+              src={content.ambiancePhotoUrl}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <PhotoPlaceholder
+            label={t("photoPlaceholder")}
+            className="aspect-[16/7] w-full"
+          />
+        )}
       </Container>
 
       <Section className="bg-sand/30">

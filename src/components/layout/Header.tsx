@@ -1,13 +1,15 @@
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { siteSettings } from "@/content/site-settings";
+import { getSiteSettings } from "@/content";
 import { Container } from "@/components/ui/Container";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-export function Header() {
-  const locale = useLocale();
-  const t = useTranslations("nav");
-  const { brandName } = siteSettings[locale];
+export async function Header() {
+  const locale = await getLocale();
+  const [t, { brandName }] = await Promise.all([
+    getTranslations("nav"),
+    getSiteSettings(locale),
+  ]);
 
   const links = [
     { href: "/", label: t("home") },

@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Sanity Studio config/schema and one-off scripts follow their own conventions.
+    "sanity.config.ts",
+    "sanity.cli.ts",
+    "src/sanity/**",
+    "scripts/**",
   ]),
 ]);
 

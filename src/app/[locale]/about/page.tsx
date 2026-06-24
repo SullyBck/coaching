@@ -5,6 +5,7 @@ import { getAboutContent } from "@/content";
 import type { Locale } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 
 export async function generateMetadata({
   params,
@@ -12,7 +13,8 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return { title: getAboutContent(locale).title };
+  const content = await getAboutContent(locale);
+  return { title: content.title };
 }
 
 export default async function AboutPage({
@@ -23,8 +25,10 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const content = getAboutContent(locale);
-  const t = await getTranslations("common");
+  const [content, t] = await Promise.all([
+    getAboutContent(locale),
+    getTranslations("common"),
+  ]);
 
   return (
     <Section>
@@ -40,16 +44,23 @@ export default async function AboutPage({
         </div>
 
         <div className="flex flex-1 flex-col gap-8">
-          <div className="relative aspect-[4/5] w-1/2 overflow-hidden bg-sand/30">
-            <Image
-              src="/images/segolene-falandry-portrait.jpeg"
-              alt={t("aboutPhotoAlt")}
-              fill
-              sizes="(min-width: 768px) 25vw, 50vw"
-              className="object-cover"
-              priority
+          {content.portraitPhotoUrl ? (
+            <div className="relative aspect-[4/5] w-1/2 overflow-hidden bg-sand/30">
+              <Image
+                src={content.portraitPhotoUrl}
+                alt={t("aboutPhotoAlt")}
+                fill
+                sizes="(min-width: 768px) 25vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+          ) : (
+            <PhotoPlaceholder
+              label={t("photoPlaceholder")}
+              className="aspect-[4/5] w-1/2"
             />
-          </div>
+          )}
           <ul className="flex flex-col gap-2 text-sm leading-relaxed text-navy/70">
             {content.credentials.map((credential) => (
               <li key={credential} className="border-l border-gold/60 pl-4">

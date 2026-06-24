@@ -1,11 +1,13 @@
-import { useLocale, useTranslations } from "next-intl";
-import { siteSettings } from "@/content/site-settings";
+import { getLocale, getTranslations } from "next-intl/server";
+import { getSiteSettings } from "@/content";
 import { Container } from "@/components/ui/Container";
 
-export function Footer() {
-  const locale = useLocale();
-  const t = useTranslations("footer");
-  const { brandName } = siteSettings[locale];
+export async function Footer() {
+  const locale = await getLocale();
+  const [t, { brandName }] = await Promise.all([
+    getTranslations("footer"),
+    getSiteSettings(locale),
+  ]);
   const year = new Date().getFullYear();
 
   return (

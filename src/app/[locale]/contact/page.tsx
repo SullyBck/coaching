@@ -12,7 +12,8 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return { title: getContactContent(locale).title };
+  const content = await getContactContent(locale);
+  return { title: content.title };
 }
 
 export default async function ContactPage({
@@ -23,8 +24,10 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const content = getContactContent(locale);
-  const t = await getTranslations("contactForm");
+  const [content, t] = await Promise.all([
+    getContactContent(locale),
+    getTranslations("contactForm"),
+  ]);
 
   return (
     <Section>

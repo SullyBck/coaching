@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "resources": "Ressources",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Coaching exécutif — un espace confidentiel pour avancer.",
+    "rights": "Tous droits réservés."
+  },
+  "languageSwitcher": {
+    "fr": "FR",
+    "en": "EN"
+  },
+  "contactForm": {
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "Email",
+    "emailPlaceholder": "votre@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Votre message",
+    "submit": "Envoyer"
+  },
+  "common": {
+    "comingSoon": "À venir",
+    "photoPlaceholder": "Photo à venir",
+    "aboutPhotoAlt": "Portrait de Ségolène Falandry"
+  }
+}

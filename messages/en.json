@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "resources": "Resources",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Executive coaching — a confidential space to move forward.",
+    "rights": "All rights reserved."
+  },
+  "languageSwitcher": {
+    "fr": "FR",
+    "en": "EN"
+  },
+  "contactForm": {
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Your message",
+    "submit": "Send"
+  },
+  "common": {
+    "comingSoon": "Coming soon",
+    "photoPlaceholder": "Photo coming soon",
+    "aboutPhotoAlt": "Portrait of Ségolène Falandry"
+  }
+}

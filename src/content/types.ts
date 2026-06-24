@@ -47,10 +47,6 @@ export interface Article {
 export interface ResourcesContent {
   title: string;
   articles: Article[];
-  newsletter: {
-    heading: string;
-    description: string;
-  };
 }
 
 export interface ContactContent {

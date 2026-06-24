@@ -137,14 +137,6 @@ async function seed() {
         comingSoon: a.comingSoon,
       };
     }),
-    newsletterHeading: {
-      fr: resourcesFr.newsletter.heading,
-      en: resourcesEn.newsletter.heading,
-    },
-    newsletterDescription: {
-      fr: resourcesFr.newsletter.description,
-      en: resourcesEn.newsletter.description,
-    },
   });
 
   console.log("Writing contactPage...");

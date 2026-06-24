@@ -45,13 +45,6 @@ export default async function ResourcesPage({
             />
           ))}
         </div>
-
-        <div className="bg-sand/30 p-10 text-center">
-          <h2 className="font-display text-2xl text-navy">
-            {content.newsletter.heading}
-          </h2>
-          <p className="mt-4 text-navy/80">{content.newsletter.description}</p>
-        </div>
       </Container>
     </Section>
   );

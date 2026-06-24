@@ -14,13 +14,6 @@ export const services: ServicesContent = {
       outcome: "Plus clair, plus rapide, plus aligné.",
     },
     {
-      name: "Reconstruction (post-burnout / reprise)",
-      description:
-        "Retrouver énergie, direction et stabilité intérieure. Programme en trois temps : Reconnecter • Reconstruire • Réorienter. Priorisation, capacité d'action retrouvée, trajectoire redessinée.",
-      formats: [],
-      outcome: "Revenir entier, ancré et prêt.",
-    },
-    {
       name: "Transitions & négociation",
       description:
         "Pour les repositionnements sensibles, les départs ou les tournants majeurs. Clarification des objectifs, préparation de la négociation, éclairage juridique et RH, gestion émotionnelle, stratégie de repositionnement, narratif & visibilité.",

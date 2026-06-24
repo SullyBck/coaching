@@ -24,9 +24,4 @@ export const resources: ResourcesContent = {
       comingSoon: true,
     },
   ],
-  newsletter: {
-    heading: "Newsletter",
-    description:
-      "A monthly reflection to think differently and breathe more deeply.",
-  },
 };

@@ -32,7 +32,7 @@ export default async function ServicesPage({
         <h1 className="text-center font-display text-4xl text-navy">
           {content.title}
         </h1>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:mx-auto md:max-w-4xl md:grid-cols-2">
           {content.services.map((service) => (
             <ServiceCard key={service.name} service={service} />
           ))}

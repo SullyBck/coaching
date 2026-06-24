@@ -98,16 +98,12 @@ export async function getResourcesContent(locale: Locale): Promise<ResourcesCont
         "title": title[$locale],
         "slug": slug.current,
         "comingSoon": comingSoon
-      },
-      "newsletter": {
-        "heading": newsletterHeading[$locale],
-        "description": newsletterDescription[$locale]
       }
     }`,
     { locale },
   );
 
-  return { title: data.title, articles: data.articles ?? [], newsletter: data.newsletter };
+  return { title: data.title, articles: data.articles ?? [] };
 }
 
 export async function getContactContent(locale: Locale): Promise<ContactContent> {

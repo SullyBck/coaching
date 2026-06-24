@@ -69,10 +69,12 @@ export default async function HomePage({
       </Section>
 
       <Section>
-        <Container className="grid gap-6 md:grid-cols-2">
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard key={index} testimonial={testimonial} />
-          ))}
+        <Container>
+          <div className="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={index} testimonial={testimonial} />
+            ))}
+          </div>
         </Container>
       </Section>
 

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": ["Bash"],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}

@@ -14,13 +14,6 @@ export const services: ServicesContent = {
       outcome: "Clearer, faster, more aligned.",
     },
     {
-      name: "Rebuilding (post-burnout / return)",
-      description:
-        "Restoring energy, direction, and inner stability. A three-phase program: Reconnect • Rebuild • Reorient. Renewed prioritization, restored capacity to act, a redrawn trajectory.",
-      formats: [],
-      outcome: "Return whole, grounded, and ready.",
-    },
-    {
       name: "Transitions & Negotiation",
       description:
         "For sensitive repositioning, departures, or major turning points. Clarifying objectives, negotiation preparation, legal and HR insight, emotional management, repositioning strategy, narrative & visibility.",

@@ -12,8 +12,6 @@ export const resourcesPage = defineType({
       type: "array",
       of: [{ type: "article" }],
     },
-    { name: "newsletterHeading", title: "Titre newsletter", type: "localeString", validation: (Rule) => Rule.required() },
-    { name: "newsletterDescription", title: "Description newsletter", type: "localeText", validation: (Rule) => Rule.required() },
   ],
   preview: {
     select: { title: "title.fr" },

@@ -252,13 +252,14 @@ function AvailabilityCalendar() {
                     return (
                       <Box key={`${dayIndex}-${hour}-${minute}`} padding={1}>
                         <Button
-                          mode={tone === "default" ? "ghost" : "default"}
+                          mode="default"
                           tone={tone}
                           disabled={disabled}
                           onClick={() => handleCellClick(iso, existing)}
-                          style={{ width: "100%" }}
+                          style={{ width: "100%", height: 32 }}
                           fontSize={1}
                           padding={2}
+                          text={isPendingAdd ? "+" : isPendingRemove ? "−" : " "}
                         />
                       </Box>
                     );

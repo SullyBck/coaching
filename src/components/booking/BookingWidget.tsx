@@ -17,7 +17,7 @@ async function fetchAvailableSlots(): Promise<AppointmentSlot[]> {
   }
 }
 
-export function BookingWidget() {
+export function BookingWidget({ showHeading = true }: { showHeading?: boolean }) {
   const locale = useLocale();
   const t = useTranslations("booking");
   const [slots, setSlots] = useState<AppointmentSlot[]>([]);
@@ -73,7 +73,9 @@ export function BookingWidget() {
   if (status === "success") {
     return (
       <div className="flex flex-col gap-2">
-        <h2 className="font-display text-xl text-navy">{t("heading")}</h2>
+        {showHeading && (
+          <h2 className="font-display text-xl text-navy">{t("heading")}</h2>
+        )}
         <p className="text-navy/80">{t("success")}</p>
       </div>
     );
@@ -97,7 +99,9 @@ export function BookingWidget() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="font-display text-xl text-navy">{t("heading")}</h2>
+      {showHeading && (
+        <h2 className="font-display text-xl text-navy">{t("heading")}</h2>
+      )}
 
       {errorKey && (
         <p className="text-sm text-navy/70">{t(errorKey)}</p>

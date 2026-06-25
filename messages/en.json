@@ -37,6 +37,9 @@
     "conflict": "This slot was just booked — please choose another one.",
     "genericError": "Something went wrong, please try again."
   },
+  "contact": {
+    "panelTitle": "Contact me"
+  },
   "common": {
     "comingSoon": "Coming soon",
     "photoPlaceholder": "Photo coming soon",

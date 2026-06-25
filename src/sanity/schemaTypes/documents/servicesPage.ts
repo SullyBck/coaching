@@ -12,6 +12,13 @@ export const servicesPage = defineType({
       type: "array",
       of: [{ type: "service" }],
     },
+    {
+      name: "bookingLinkLabel",
+      title: "Libellé du lien vers la prise de rendez-vous",
+      type: "localeString",
+      description: "Affiché en bas de la page, sous forme de lien vers la page Contact.",
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
     select: { title: "title.fr" },

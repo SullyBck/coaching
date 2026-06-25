@@ -21,4 +21,5 @@ export const services: ServicesContent = {
       outcome: "Sortir plus fort, plus clair, pleinement aux commandes.",
     },
   ],
+  bookingLinkLabel: "Prendre rendez-vous",
 };

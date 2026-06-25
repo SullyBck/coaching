@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getContactContent } from "@/content";
 import type { Locale } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
@@ -25,56 +25,69 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const content = await getContactContent(locale);
+  const [content, tBooking, tContact] = await Promise.all([
+    getContactContent(locale),
+    getTranslations("booking"),
+    getTranslations("contact"),
+  ]);
 
   return (
     <Section>
-      <Container className="flex flex-col gap-12 md:mx-auto md:max-w-2xl">
-        <div className="flex flex-col gap-6">
+      <Container className="flex flex-col gap-12">
+        <div className="flex flex-col gap-4 text-center md:mx-auto md:max-w-2xl">
           <p className="text-sm tracking-[0.2em] text-gold uppercase">
             {content.subtitle}
           </p>
           <h1 className="font-display text-4xl text-navy">{content.title}</h1>
-          <h2 className="font-display text-xl text-navy">
-            {content.ctaHeading}
-          </h2>
-          <ul className="flex flex-wrap gap-3 text-sm tracking-wide text-navy/60">
-            {content.ctaQualifiers.map((qualifier) => (
-              <li key={qualifier} className="border border-navy/20 px-3 py-1">
-                {qualifier}
-              </li>
-            ))}
-          </ul>
-          {(content.email || content.linkedinUrl) && (
-            <div className="flex flex-col gap-1 text-sm text-navy/70">
-              {content.email && (
-                <a
-                  href={`mailto:${content.email}`}
-                  className="hover:text-gold"
-                >
-                  {content.email}
-                </a>
-              )}
-              {content.linkedinUrl && (
-                <a
-                  href={content.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold"
-                >
-                  LinkedIn
-                </a>
-              )}
-            </div>
-          )}
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-navy/10 pt-12">
-          <BookingWidget />
-        </div>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div className="flex flex-col gap-6 border-t border-navy/10 pt-8 md:border-t-0 md:border-r md:pr-12 md:pt-0">
+            <h2 className="font-display text-2xl text-navy">
+              {tBooking("heading")}
+            </h2>
+            <p className="text-sm tracking-wide text-navy/60">
+              {content.ctaHeading}
+            </p>
+            <ul className="flex flex-wrap gap-3 text-sm tracking-wide text-navy/60">
+              {content.ctaQualifiers.map((qualifier) => (
+                <li key={qualifier} className="border border-navy/20 px-3 py-1">
+                  {qualifier}
+                </li>
+              ))}
+            </ul>
+            <BookingWidget showHeading={false} />
+          </div>
 
-        <div className="flex flex-col gap-4 border-t border-navy/10 pt-12">
-          <ContactForm />
+          <div className="flex flex-col gap-6 border-t border-navy/10 pt-8 md:border-t-0 md:pt-0">
+            <h2 className="font-display text-2xl text-navy">
+              {tContact("panelTitle")}
+            </h2>
+            {(content.email || content.linkedinUrl) && (
+              <div className="flex flex-col gap-1 text-sm text-navy/70">
+                {content.email && (
+                  <a
+                    href={`mailto:${content.email}`}
+                    className="hover:text-gold"
+                  >
+                    {content.email}
+                  </a>
+                )}
+                {content.linkedinUrl && (
+                  <a
+                    href={content.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold"
+                  >
+                    LinkedIn
+                  </a>
+                )}
+              </div>
+            )}
+            <p className="leading-relaxed text-navy/80">{content.formIntro}</p>
+            <ContactForm />
+          </div>
         </div>
       </Container>
     </Section>

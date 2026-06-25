@@ -37,6 +37,7 @@ export interface Service {
 export interface ServicesContent {
   title: string;
   services: Service[];
+  bookingLinkLabel: string;
 }
 
 export interface Article {
@@ -65,6 +66,7 @@ export interface ContactContent {
   linkedinUrl?: string;
   phone?: string;
   location?: string;
+  formIntro: string;
 }
 
 export interface AppointmentSlot {

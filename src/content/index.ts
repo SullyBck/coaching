@@ -86,12 +86,17 @@ export async function getServicesContent(locale: Locale): Promise<ServicesConten
         "description": description[$locale],
         "formats": formats[]${LOCALIZED_ARRAY_ITEM},
         "outcome": outcome[$locale]
-      }
+      },
+      "bookingLinkLabel": bookingLinkLabel[$locale]
     }`,
     { locale },
   );
 
-  return { title: data.title, services: data.services ?? [] };
+  return {
+    title: data.title,
+    services: data.services ?? [],
+    bookingLinkLabel: data.bookingLinkLabel,
+  };
 }
 
 export async function getResourcesContent(locale: Locale): Promise<ResourcesContent> {
@@ -148,7 +153,8 @@ export async function getContactContent(locale: Locale): Promise<ContactContent>
       email,
       linkedinUrl,
       phone,
-      location
+      location,
+      "formIntro": formIntro[$locale]
     }`,
     { locale },
   );
@@ -162,6 +168,7 @@ export async function getContactContent(locale: Locale): Promise<ContactContent>
     linkedinUrl: data.linkedinUrl,
     phone: data.phone,
     location: data.location,
+    formIntro: data.formIntro,
   };
 }
 

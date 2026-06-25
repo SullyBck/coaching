@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { getServicesContent } from "@/content";
 import type { Locale } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
@@ -37,6 +38,15 @@ export default async function ServicesPage({
             <ServiceCard key={service.name} service={service} />
           ))}
         </div>
+
+        <p className="text-center">
+          <Link
+            href="/contact"
+            className="text-sm tracking-wide text-navy transition-colors hover:text-gold"
+          >
+            {content.bookingLinkLabel} →
+          </Link>
+        </p>
       </Container>
     </Section>
   );

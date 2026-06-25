@@ -21,4 +21,5 @@ export const services: ServicesContent = {
       outcome: "Emerge stronger, clearer, and fully in command.",
     },
   ],
+  bookingLinkLabel: "Book an appointment",
 };

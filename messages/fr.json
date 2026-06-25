@@ -37,6 +37,9 @@
     "conflict": "Ce créneau vient d'être réservé — merci d'en choisir un autre.",
     "genericError": "Une erreur est survenue, merci de réessayer."
   },
+  "contact": {
+    "panelTitle": "Me contacter"
+  },
   "common": {
     "comingSoon": "À venir",
     "photoPlaceholder": "Photo à venir",

@@ -29,6 +29,7 @@
   "booking": {
     "heading": "Choose a time slot",
     "noSlots": "No slots available right now — please write to us directly.",
+    "changeDate": "Choose another date",
     "name": "Name",
     "email": "Email",
     "confirm": "Confirm booking",

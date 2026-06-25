@@ -29,6 +29,7 @@
   "booking": {
     "heading": "Choisir un créneau",
     "noSlots": "Aucun créneau disponible pour le moment — écrivez-nous directement.",
+    "changeDate": "Choisir une autre date",
     "name": "Nom",
     "email": "Email",
     "confirm": "Confirmer la réservation",

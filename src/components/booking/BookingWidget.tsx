@@ -17,11 +17,21 @@ async function fetchAvailableSlots(): Promise<AppointmentSlot[]> {
   }
 }
 
+function dateKeyFor(date: Date): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Paris",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+}
+
 export function BookingWidget({ showHeading = true }: { showHeading?: boolean }) {
   const locale = useLocale();
   const t = useTranslations("booking");
   const [slots, setSlots] = useState<AppointmentSlot[]>([]);
   const [status, setStatus] = useState<Status>("loading");
+  const [selectedDateKey, setSelectedDateKey] = useState<string | null>(null);
   const [selectedSlotId, setSelectedSlotId] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -61,6 +71,7 @@ export function BookingWidget({ showHeading = true }: { showHeading?: boolean })
 
       const data = await res.json().catch(() => ({}));
       setErrorKey(data.error === "slot_unavailable" ? "conflict" : "genericError");
+      setSelectedDateKey(null);
       setSelectedSlotId(null);
       setStatus("idle");
       setSlots(await fetchAvailableSlots());
@@ -83,19 +94,29 @@ export function BookingWidget({ showHeading = true }: { showHeading?: boolean })
 
   const groups = new Map<string, AppointmentSlot[]>();
   for (const slot of slots) {
-    const dateLabel = new Intl.DateTimeFormat(locale, {
-      dateStyle: "full",
-      timeZone: "Europe/Paris",
-    }).format(new Date(slot.start));
-    const group = groups.get(dateLabel) ?? [];
+    const key = dateKeyFor(new Date(slot.start));
+    const group = groups.get(key) ?? [];
     group.push(slot);
-    groups.set(dateLabel, group);
+    groups.set(key, group);
   }
 
+  const dateChipFormatter = new Intl.DateTimeFormat(locale, {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    timeZone: "Europe/Paris",
+  });
+  const dateHeadingFormatter = new Intl.DateTimeFormat(locale, {
+    dateStyle: "full",
+    timeZone: "Europe/Paris",
+  });
   const timeFormatter = new Intl.DateTimeFormat(locale, {
     timeStyle: "short",
     timeZone: "Europe/Paris",
   });
+
+  const dateKeys = Array.from(groups.keys());
+  const daySlots = selectedDateKey ? groups.get(selectedDateKey) ?? [] : [];
 
   return (
     <div className="flex flex-col gap-6">
@@ -107,31 +128,52 @@ export function BookingWidget({ showHeading = true }: { showHeading?: boolean })
         <p className="text-sm text-navy/70">{t(errorKey)}</p>
       )}
 
-      {status === "loading" ? null : groups.size === 0 ? (
+      {status === "loading" ? null : dateKeys.length === 0 ? (
         <p className="text-sm text-navy/60">{t("noSlots")}</p>
-      ) : (
-        <div className="flex flex-col gap-4">
-          {Array.from(groups.entries()).map(([dateLabel, daySlots]) => (
-            <div key={dateLabel} className="flex flex-col gap-2">
-              <p className="text-sm text-navy/60">{dateLabel}</p>
-              <div className="flex flex-wrap gap-2">
-                {daySlots.map((slot) => (
-                  <button
-                    key={slot.id}
-                    type="button"
-                    onClick={() => setSelectedSlotId(slot.id)}
-                    className={
-                      slot.id === selectedSlotId
-                        ? "border border-navy bg-navy px-4 py-2 text-sm text-white"
-                        : "border border-navy/20 px-4 py-2 text-sm text-navy transition-colors hover:border-gold"
-                    }
-                  >
-                    {timeFormatter.format(new Date(slot.start))}
-                  </button>
-                ))}
-              </div>
-            </div>
+      ) : !selectedDateKey ? (
+        <div className="flex flex-wrap gap-2">
+          {dateKeys.map((key) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => setSelectedDateKey(key)}
+              className="border border-navy/20 px-3 py-2 text-sm text-navy transition-colors hover:border-gold"
+            >
+              {dateChipFormatter.format(new Date(`${key}T12:00:00`))}
+            </button>
           ))}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedDateKey(null);
+              setSelectedSlotId(null);
+            }}
+            className="self-start text-xs tracking-wide text-navy/50 hover:text-gold"
+          >
+            ← {t("changeDate")}
+          </button>
+          <p className="text-sm text-navy/60">
+            {dateHeadingFormatter.format(new Date(`${selectedDateKey}T12:00:00`))}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {daySlots.map((slot) => (
+              <button
+                key={slot.id}
+                type="button"
+                onClick={() => setSelectedSlotId(slot.id)}
+                className={
+                  slot.id === selectedSlotId
+                    ? "border border-navy bg-navy px-4 py-2 text-sm text-white"
+                    : "border border-navy/20 px-4 py-2 text-sm text-navy transition-colors hover:border-gold"
+                }
+              >
+                {timeFormatter.format(new Date(slot.start))}
+              </button>
+            ))}
+          </div>
         </div>
       )}
 

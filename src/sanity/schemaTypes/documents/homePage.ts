@@ -17,6 +17,7 @@ export const homePage = defineType({
       validation: (Rule) => Rule.required(),
     },
     { name: "quoteFollowUp", title: "Texte après la citation", type: "localeText", validation: (Rule) => Rule.required() },
+    { name: "testimonialsHeading", title: "Titre de la section témoignages", type: "localeString", validation: (Rule) => Rule.required() },
     { name: "aboutLinkLabel", title: "Libellé du lien vers À propos", type: "localeString", validation: (Rule) => Rule.required() },
     {
       name: "ambiancePhoto",

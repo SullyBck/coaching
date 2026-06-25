@@ -70,6 +70,11 @@ export default async function HomePage({
 
       <Section>
         <Container>
+          {content.testimonialsHeading ? (
+            <h2 className="mb-10 text-center font-display text-2xl text-navy">
+              {content.testimonialsHeading}
+            </h2>
+          ) : null}
           <div className="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} testimonial={testimonial} />

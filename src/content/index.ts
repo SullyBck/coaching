@@ -24,6 +24,7 @@ export async function getHomeContent(locale: Locale): Promise<HomeContent> {
       "quoteText": quoteText[$locale],
       "quoteAttribution": quoteAttribution,
       "quoteFollowUp": quoteFollowUp[$locale],
+      "testimonialsHeading": testimonialsHeading[$locale],
       "aboutLinkLabel": aboutLinkLabel[$locale],
       ambiancePhoto
     }`,
@@ -39,6 +40,7 @@ export async function getHomeContent(locale: Locale): Promise<HomeContent> {
       attribution: data.quoteAttribution,
       followUp: data.quoteFollowUp,
     },
+    testimonialsHeading: data.testimonialsHeading,
     aboutLinkLabel: data.aboutLinkLabel,
     ambiancePhotoUrl: data.ambiancePhoto
       ? urlFor(data.ambiancePhoto).width(1600).url()

@@ -14,6 +14,7 @@ export interface HomeContent {
   };
   aboutLinkLabel: string;
   ambiancePhotoUrl?: string;
+  testimonialsHeading?: string;
 }
 
 export interface AboutContent {

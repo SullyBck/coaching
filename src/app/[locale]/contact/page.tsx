@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { getContactContent } from "@/content";
 import type { Locale } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
+import { BookingWidget } from "@/components/booking/BookingWidget";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 export async function generateMetadata({
   params,
@@ -24,10 +25,7 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [content, t] = await Promise.all([
-    getContactContent(locale),
-    getTranslations("contactForm"),
-  ]);
+  const content = await getContactContent(locale);
 
   return (
     <Section>
@@ -47,58 +45,37 @@ export default async function ContactPage({
               </li>
             ))}
           </ul>
+          {(content.email || content.linkedinUrl) && (
+            <div className="flex flex-col gap-1 text-sm text-navy/70">
+              {content.email && (
+                <a
+                  href={`mailto:${content.email}`}
+                  className="hover:text-gold"
+                >
+                  {content.email}
+                </a>
+              )}
+              {content.linkedinUrl && (
+                <a
+                  href={content.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold"
+                >
+                  LinkedIn
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
-        <form className="flex flex-1 flex-col gap-4">
-          <div>
-            <label
-              htmlFor="name"
-              className="mb-1 block text-sm text-navy/70"
-            >
-              {t("name")}
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder={t("namePlaceholder")}
-              className="w-full border border-navy/20 px-4 py-3 focus:border-gold focus:outline-none"
-            />
+        <div className="flex flex-1 flex-col gap-12">
+          <BookingWidget />
+
+          <div className="flex flex-col gap-4 border-t border-navy/10 pt-12">
+            <ContactForm />
           </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="mb-1 block text-sm text-navy/70"
-            >
-              {t("email")}
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder={t("emailPlaceholder")}
-              className="w-full border border-navy/20 px-4 py-3 focus:border-gold focus:outline-none"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="message"
-              className="mb-1 block text-sm text-navy/70"
-            >
-              {t("message")}
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              placeholder={t("messagePlaceholder")}
-              className="w-full border border-navy/20 px-4 py-3 focus:border-gold focus:outline-none"
-            />
-          </div>
-          <Button type="submit" className="self-start">
-            {t("submit")}
-          </Button>
-        </form>
+        </div>
       </Container>
     </Section>
   );

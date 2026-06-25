@@ -21,7 +21,21 @@
     "emailPlaceholder": "votre@email.com",
     "message": "Message",
     "messagePlaceholder": "Votre message",
-    "submit": "Envoyer"
+    "submit": "Envoyer",
+    "submitting": "Envoi en cours…",
+    "success": "Votre message a été envoyé. Merci, nous vous répondrons rapidement.",
+    "error": "Une erreur est survenue, merci de réessayer ou de nous écrire directement."
+  },
+  "booking": {
+    "heading": "Choisir un créneau",
+    "noSlots": "Aucun créneau disponible pour le moment — écrivez-nous directement.",
+    "name": "Nom",
+    "email": "Email",
+    "confirm": "Confirmer la réservation",
+    "submitting": "Réservation en cours…",
+    "success": "Votre créneau est confirmé. Vous allez recevoir un email de confirmation.",
+    "conflict": "Ce créneau vient d'être réservé — merci d'en choisir un autre.",
+    "genericError": "Une erreur est survenue, merci de réessayer."
   },
   "common": {
     "comingSoon": "À venir",

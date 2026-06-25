@@ -5,4 +5,6 @@ export const contact: ContactContent = {
   subtitle: "Un espace confidentiel pour avancer.",
   ctaHeading: "Réserver une séance découverte",
   ctaQualifiers: ["30 minutes", "Confidentiel", "Sans engagement"],
+  email: "segolene.falandry@icloud.com",
+  linkedinUrl: "https://www.linkedin.com/in/segolenefalandry/",
 };

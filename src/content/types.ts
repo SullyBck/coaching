@@ -43,6 +43,12 @@ export interface Article {
   title: string;
   slug: string;
   comingSoon: boolean;
+  kind: "full" | "external";
+  externalUrl?: string;
+}
+
+export interface ArticleDetail extends Article {
+  body?: import("@portabletext/react").PortableTextBlock[];
 }
 
 export interface ResourcesContent {
@@ -56,8 +62,15 @@ export interface ContactContent {
   ctaHeading: string;
   ctaQualifiers: string[];
   email?: string;
+  linkedinUrl?: string;
   phone?: string;
   location?: string;
+}
+
+export interface AppointmentSlot {
+  id: string;
+  start: string;
+  durationMinutes: number;
 }
 
 export interface SiteSettings {

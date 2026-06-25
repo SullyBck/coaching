@@ -15,6 +15,12 @@ export const contactPage = defineType({
       of: [{ type: "localeString" }],
     },
     { name: "email", title: "Email de contact", type: "string" },
+    {
+      name: "linkedinUrl",
+      title: "Lien LinkedIn",
+      type: "url",
+      validation: (Rule) => Rule.uri({ scheme: ["http", "https"] }),
+    },
     { name: "phone", title: "Téléphone", type: "string" },
     { name: "location", title: "Lieu", type: "string" },
   ],

@@ -1,13 +1,13 @@
 import type { AboutContent } from "../types";
 
 export const about: AboutContent = {
-  title: "La fondatrice",
+  title: "Qui suis-je ?",
   subtitle:
-    "Accompagner les leaders là où tout se joue : dans l'espace entre la clarté et l'action.",
+    "J'accompagne les leaders là où tout se joue : dans l'espace entre la clarté et l'action.",
   bio:
-    "Depuis plus de 20 ans, Ségolène Falandry accompagne dirigeants, cadres seniors et hauts potentiels dans leurs phases critiques : transitions, repositionnements, négociations, crises, reconstruction post-burnout.",
+    "Depuis plus de 20 ans, j'accompagne dirigeants, cadres seniors et hauts potentiels dans leurs phases critiques : transitions, repositionnements, négociations, crises, reconstruction post-burnout.",
   expertise:
-    "RH exécutives, droit et coaching (certifiée ICF) — une approche à la fois stratégique, humaine, émotionnellement intelligente et entièrement confidentielle.",
+    "Mon expertise hybride — RH exécutives, droit et coaching (certifiée ICF) — nourrit une approche à la fois stratégique, humaine, émotionnellement intelligente et entièrement confidentielle.",
   credentials: [
     "Coach certifiée (ICF)",
     "Master de droit — Université Paris I Panthéon-Sorbonne",
@@ -18,5 +18,5 @@ export const about: AboutContent = {
     "Spécialiste des transitions complexes et des décisions critiques",
   ],
   signature:
-    "Aider les leaders à retrouver un axe clair et la capacité de décider, même dans les circonstances les plus exigeantes.",
+    "J'aide les leaders à retrouver un axe clair et la capacité de décider, même dans les circonstances les plus exigeantes.",
 };

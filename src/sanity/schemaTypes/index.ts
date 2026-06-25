@@ -1,10 +1,12 @@
 import { type SchemaTypeDefinition } from "sanity";
 
 import { article } from "./objects/article";
+import { localeBlockContent } from "./objects/localeBlockContent";
 import { localeString } from "./objects/localeString";
 import { localeText } from "./objects/localeText";
 import { service } from "./objects/service";
 import { aboutPage } from "./documents/aboutPage";
+import { appointmentSlot } from "./documents/appointmentSlot";
 import { contactPage } from "./documents/contactPage";
 import { homePage } from "./documents/homePage";
 import { resourcesPage } from "./documents/resourcesPage";
@@ -16,6 +18,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     localeString,
     localeText,
+    localeBlockContent,
     service,
     article,
     siteSettings,
@@ -25,5 +28,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     resourcesPage,
     contactPage,
     testimonial,
+    appointmentSlot,
   ],
 };

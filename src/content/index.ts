@@ -3,6 +3,8 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import type {
   AboutContent,
+  AppointmentSlot,
+  ArticleDetail,
   ContactContent,
   HomeContent,
   ResourcesContent,
@@ -99,13 +101,41 @@ export async function getResourcesContent(locale: Locale): Promise<ResourcesCont
       "articles": articles[]{
         "title": title[$locale],
         "slug": slug.current,
-        "comingSoon": comingSoon
+        "comingSoon": comingSoon,
+        "kind": kind,
+        "externalUrl": externalUrl
       }
     }`,
     { locale },
   );
 
-  return { title: data.title, articles: data.articles ?? [] };
+  return {
+    title: data.title,
+    articles: (data.articles ?? []).map((article: { kind?: string }) => ({
+      ...article,
+      kind: article.kind ?? "full",
+    })),
+  };
+}
+
+export async function getArticleContent(
+  locale: Locale,
+  slug: string,
+): Promise<ArticleDetail | null> {
+  const data = await client.fetch(
+    `*[_type == "resourcesPage"][0].articles[slug.current == $slug][0]{
+      "title": title[$locale],
+      "slug": slug.current,
+      "comingSoon": comingSoon,
+      "kind": kind,
+      "externalUrl": externalUrl,
+      "body": body[$locale]
+    }`,
+    { locale, slug },
+  );
+
+  if (!data) return null;
+  return { ...data, kind: data.kind ?? "full" };
 }
 
 export async function getContactContent(locale: Locale): Promise<ContactContent> {
@@ -116,6 +146,7 @@ export async function getContactContent(locale: Locale): Promise<ContactContent>
       "ctaHeading": ctaHeading[$locale],
       "ctaQualifiers": ctaQualifiers[]${LOCALIZED_ARRAY_ITEM},
       email,
+      linkedinUrl,
       phone,
       location
     }`,
@@ -128,6 +159,7 @@ export async function getContactContent(locale: Locale): Promise<ContactContent>
     ctaHeading: data.ctaHeading,
     ctaQualifiers: data.ctaQualifiers ?? [],
     email: data.email,
+    linkedinUrl: data.linkedinUrl,
     phone: data.phone,
     location: data.location,
   };
@@ -140,6 +172,18 @@ export async function getTestimonials(locale: Locale): Promise<Testimonial[]> {
       "quote": quote[$locale]
     }`,
     { locale },
+  );
+}
+
+export async function getAvailableSlots(): Promise<AppointmentSlot[]> {
+  const now = new Date().toISOString();
+  return client.fetch(
+    `*[_type == "appointmentSlot" && start > $now && !defined(booking.email)] | order(start asc) {
+      "id": _id,
+      start,
+      durationMinutes
+    }`,
+    { now },
   );
 }
 

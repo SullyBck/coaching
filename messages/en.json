@@ -21,7 +21,21 @@
     "emailPlaceholder": "your@email.com",
     "message": "Message",
     "messagePlaceholder": "Your message",
-    "submit": "Send"
+    "submit": "Send",
+    "submitting": "Sending…",
+    "success": "Your message has been sent. Thank you, we'll get back to you shortly.",
+    "error": "Something went wrong — please try again or email us directly."
+  },
+  "booking": {
+    "heading": "Choose a time slot",
+    "noSlots": "No slots available right now — please write to us directly.",
+    "name": "Name",
+    "email": "Email",
+    "confirm": "Confirm booking",
+    "submitting": "Booking…",
+    "success": "Your slot is confirmed. You'll receive a confirmation email shortly.",
+    "conflict": "This slot was just booked — please choose another one.",
+    "genericError": "Something went wrong, please try again."
   },
   "common": {
     "comingSoon": "Coming soon",

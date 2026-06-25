@@ -29,8 +29,8 @@ export default async function ContactPage({
 
   return (
     <Section>
-      <Container className="flex flex-col gap-12 md:flex-row">
-        <div className="flex flex-1 flex-col gap-6">
+      <Container className="flex flex-col gap-12 md:mx-auto md:max-w-2xl">
+        <div className="flex flex-col gap-6">
           <p className="text-sm tracking-[0.2em] text-gold uppercase">
             {content.subtitle}
           </p>
@@ -69,12 +69,12 @@ export default async function ContactPage({
           )}
         </div>
 
-        <div className="flex flex-1 flex-col gap-12">
+        <div className="flex flex-col gap-4 border-t border-navy/10 pt-12">
           <BookingWidget />
+        </div>
 
-          <div className="flex flex-col gap-4 border-t border-navy/10 pt-12">
-            <ContactForm />
-          </div>
+        <div className="flex flex-col gap-4 border-t border-navy/10 pt-12">
+          <ContactForm />
         </div>
       </Container>
     </Section>

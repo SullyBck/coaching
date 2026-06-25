@@ -13,6 +13,7 @@ import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
 import {isSingletonType} from './src/sanity/singletons'
 import {structure} from './src/sanity/structure'
+import {availabilityCalendarTool} from './src/sanity/tools/availabilityCalendar'
 
 export default defineConfig({
   basePath: '/studio',
@@ -26,6 +27,7 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
+  tools: (prev) => [...prev, availabilityCalendarTool],
   document: {
     // Pages like "Accueil" or "Contact" only ever need a single document:
     // hide create/duplicate/delete so an editor can't end up with two.

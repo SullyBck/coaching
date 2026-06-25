@@ -17,6 +17,13 @@ export const aboutPage = defineType({
     },
     { name: "signature", title: "Phrase de signature", type: "localeString", validation: (Rule) => Rule.required() },
     {
+      name: "servicesLinkLabel",
+      title: "Libellé du lien vers la page Services",
+      type: "localeString",
+      description: "Affiché en bas de la page, sous forme de lien vers la page Services.",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "portraitPhoto",
       title: "Portrait",
       type: "image",

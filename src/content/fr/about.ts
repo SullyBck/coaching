@@ -19,4 +19,5 @@ export const about: AboutContent = {
   ],
   signature:
     "J'aide les leaders à retrouver un axe clair et la capacité de décider, même dans les circonstances les plus exigeantes.",
+  servicesLinkLabel: "Accompagnement & services",
 };

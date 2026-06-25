@@ -24,6 +24,7 @@ export interface AboutContent {
   expertise: string;
   credentials: string[];
   signature: string;
+  servicesLinkLabel: string;
   portraitPhotoUrl?: string;
 }
 

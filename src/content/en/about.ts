@@ -19,4 +19,5 @@ export const about: AboutContent = {
   ],
   signature:
     "I help leaders regain a clear sense of direction and the ability to decide, even in the most demanding circumstances.",
+  servicesLinkLabel: "Coaching & Services",
 };

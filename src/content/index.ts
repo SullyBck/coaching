@@ -59,6 +59,7 @@ export async function getAboutContent(locale: Locale): Promise<AboutContent> {
       "expertise": expertise[$locale],
       "credentials": credentials[]${LOCALIZED_ARRAY_ITEM},
       "signature": signature[$locale],
+      "servicesLinkLabel": servicesLinkLabel[$locale],
       portraitPhoto
     }`,
     { locale },
@@ -71,6 +72,7 @@ export async function getAboutContent(locale: Locale): Promise<AboutContent> {
     expertise: data.expertise,
     credentials: data.credentials ?? [],
     signature: data.signature,
+    servicesLinkLabel: data.servicesLinkLabel,
     portraitPhotoUrl: data.portraitPhoto
       ? urlFor(data.portraitPhoto).width(800).url()
       : undefined,

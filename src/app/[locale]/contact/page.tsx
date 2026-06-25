@@ -44,23 +44,6 @@ export default async function ContactPage({
         <div className="grid gap-12 md:grid-cols-2">
           <div className="flex flex-col gap-6 border-t border-navy/10 pt-8 md:border-t-0 md:border-r md:pr-12 md:pt-0">
             <h2 className="font-display text-2xl text-navy">
-              {tBooking("heading")}
-            </h2>
-            <p className="text-sm tracking-wide text-navy/60">
-              {content.ctaHeading}
-            </p>
-            <ul className="flex flex-wrap gap-3 text-sm tracking-wide text-navy/60">
-              {content.ctaQualifiers.map((qualifier) => (
-                <li key={qualifier} className="border border-navy/20 px-3 py-1">
-                  {qualifier}
-                </li>
-              ))}
-            </ul>
-            <BookingWidget showHeading={false} />
-          </div>
-
-          <div className="flex flex-col gap-6 border-t border-navy/10 pt-8 md:border-t-0 md:pt-0">
-            <h2 className="font-display text-2xl text-navy">
               {tContact("panelTitle")}
             </h2>
             {(content.email || content.linkedinUrl) && (
@@ -87,6 +70,23 @@ export default async function ContactPage({
             )}
             <p className="leading-relaxed text-navy/80">{content.formIntro}</p>
             <ContactForm />
+          </div>
+
+          <div className="flex flex-col gap-6 border-t border-navy/10 pt-8 md:border-t-0 md:pt-0">
+            <h2 className="font-display text-2xl text-navy">
+              {tBooking("heading")}
+            </h2>
+            <p className="text-sm tracking-wide text-navy/60">
+              {content.ctaHeading}
+            </p>
+            <ul className="flex flex-wrap gap-3 text-sm tracking-wide text-navy/60">
+              {content.ctaQualifiers.map((qualifier) => (
+                <li key={qualifier} className="border border-navy/20 px-3 py-1">
+                  {qualifier}
+                </li>
+              ))}
+            </ul>
+            <BookingWidget showHeading={false} />
           </div>
         </div>
       </Container>

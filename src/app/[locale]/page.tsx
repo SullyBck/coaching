@@ -83,7 +83,7 @@ export default async function HomePage({
         </Container>
       </Section>
 
-      <Section className="bg-navy text-center">
+      <div className="bg-navy py-10 text-center">
         <Container>
           <Link
             href="/about"
@@ -92,7 +92,7 @@ export default async function HomePage({
             {content.aboutLinkLabel} →
           </Link>
         </Container>
-      </Section>
+      </div>
     </>
   );
 }

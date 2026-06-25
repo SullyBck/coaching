@@ -80,19 +80,16 @@ export default async function HomePage({
               <TestimonialCard key={index} testimonial={testimonial} />
             ))}
           </div>
+          <p className="mt-10 text-center">
+            <Link
+              href="/about"
+              className="text-sm tracking-wide text-navy transition-colors hover:text-gold"
+            >
+              {content.aboutLinkLabel} →
+            </Link>
+          </p>
         </Container>
       </Section>
-
-      <div className="bg-navy py-10 text-center">
-        <Container>
-          <Link
-            href="/about"
-            className="text-sm tracking-wide text-sand transition-colors hover:text-gold"
-          >
-            {content.aboutLinkLabel} →
-          </Link>
-        </Container>
-      </div>
     </>
   );
 }

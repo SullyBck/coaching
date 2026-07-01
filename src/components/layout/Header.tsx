@@ -15,7 +15,6 @@ export async function Header() {
     { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
     { href: "/services", label: t("services") },
-    { href: "/resources", label: t("resources") },
     { href: "/contact", label: t("contact") },
   ] as const;
 

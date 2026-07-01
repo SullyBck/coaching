@@ -75,9 +75,16 @@ async function seed() {
     heroHeading: { fr: homeFr.heroHeading, en: homeEn.heroHeading },
     heroSubheading: { fr: homeFr.heroSubheading, en: homeEn.heroSubheading },
     intro: { fr: homeFr.intro, en: homeEn.intro },
-    quoteText: { fr: homeFr.quote.text, en: homeEn.quote.text },
-    quoteAttribution: homeFr.quote.attribution,
-    quoteFollowUp: { fr: homeFr.quote.followUp, en: homeEn.quote.followUp },
+    whenToContactHeading: { fr: homeFr.whenToContact.heading, en: homeEn.whenToContact.heading },
+    whenToContactItems: homeFr.whenToContact.items.map((fr, i) => ({
+      _key: `wc${i}`,
+      _type: "localeString",
+      fr,
+      en: homeEn.whenToContact.items[i],
+    })),
+    confidentialHeading: { fr: homeFr.confidential.heading, en: homeEn.confidential.heading },
+    confidentialText: { fr: homeFr.confidential.text, en: homeEn.confidential.text },
+    testimonialsHeading: { fr: homeFr.testimonialsHeading, en: homeEn.testimonialsHeading },
     aboutLinkLabel: { fr: homeFr.aboutLinkLabel, en: homeEn.aboutLinkLabel },
   });
 
@@ -86,16 +93,16 @@ async function seed() {
     _id: "aboutPage",
     _type: "aboutPage",
     title: { fr: aboutFr.title, en: aboutEn.title },
-    subtitle: { fr: aboutFr.subtitle, en: aboutEn.subtitle },
     bio: { fr: aboutFr.bio, en: aboutEn.bio },
-    expertise: { fr: aboutFr.expertise, en: aboutEn.expertise },
+    singularity: { fr: aboutFr.singularity, en: aboutEn.singularity },
+    approach: { fr: aboutFr.approach, en: aboutEn.approach },
     credentials: aboutFr.credentials.map((fr, i) => ({
       _key: `c${i}`,
       _type: "localeString",
       fr,
       en: aboutEn.credentials[i],
     })),
-    signature: { fr: aboutFr.signature, en: aboutEn.signature },
+    servicesLinkLabel: { fr: aboutFr.servicesLinkLabel, en: aboutEn.servicesLinkLabel },
     portraitPhoto,
   });
 
@@ -111,13 +118,18 @@ async function seed() {
         _type: "service",
         name: { fr: s.name, en: sEn.name },
         description: { fr: s.description, en: sEn.description },
+        workAxes: s.workAxes.map((fr, j) => ({
+          _key: `a${j}`,
+          _type: "localeString",
+          fr,
+          en: sEn.workAxes[j],
+        })),
         formats: s.formats.map((f, j) => ({
           _key: `f${j}`,
           _type: "localeString",
           fr: f,
           en: sEn.formats[j],
         })),
-        outcome: { fr: s.outcome, en: sEn.outcome },
       };
     }),
   });

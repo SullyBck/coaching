@@ -8,12 +8,17 @@ export const service = defineType({
     { name: "name", title: "Nom", type: "localeString", validation: (Rule) => Rule.required() },
     { name: "description", title: "Description", type: "localeText", validation: (Rule) => Rule.required() },
     {
+      name: "workAxes",
+      title: "Axes de travail possibles",
+      type: "array",
+      of: [{ type: "localeString" }],
+    },
+    {
       name: "formats",
       title: "Formats / modalités",
       type: "array",
       of: [{ type: "localeString" }],
     },
-    { name: "outcome", title: "Résultat attendu", type: "localeString", validation: (Rule) => Rule.required() },
   ],
   preview: {
     select: { fr: "name.fr" },

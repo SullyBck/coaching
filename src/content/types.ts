@@ -7,23 +7,25 @@ export interface HomeContent {
   heroHeading: string;
   heroSubheading: string;
   intro: string;
-  quote: {
-    text: string;
-    attribution: string;
-    followUp: string;
+  whenToContact: {
+    heading: string;
+    items: string[];
   };
+  confidential: {
+    heading: string;
+    text: string;
+  };
+  testimonialsHeading?: string;
   aboutLinkLabel: string;
   ambiancePhotoUrl?: string;
-  testimonialsHeading?: string;
 }
 
 export interface AboutContent {
   title: string;
-  subtitle: string;
   bio: string;
-  expertise: string;
+  singularity: string;
+  approach: string;
   credentials: string[];
-  signature: string;
   servicesLinkLabel: string;
   portraitPhotoUrl?: string;
 }
@@ -31,8 +33,8 @@ export interface AboutContent {
 export interface Service {
   name: string;
   description: string;
+  workAxes: string[];
   formats: string[];
-  outcome: string;
 }
 
 export interface ServicesContent {

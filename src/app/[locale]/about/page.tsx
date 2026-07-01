@@ -33,26 +33,55 @@ export default async function AboutPage({
 
   return (
     <Section>
-      <Container className="flex flex-col gap-12">
-        <div className="flex flex-col gap-12 md:flex-row md:items-start">
-          <div className="flex flex-1 flex-col gap-6">
-            <p className="text-sm tracking-[0.2em] text-gold uppercase">
-              {content.subtitle}
-            </p>
-            <h1 className="font-display text-4xl text-navy">{content.title}</h1>
-            <p className="leading-relaxed text-navy/80">{content.bio}</p>
-            <p className="leading-relaxed text-navy/80">{content.expertise}</p>
-            <p className="font-display text-xl text-navy">{content.signature}</p>
+      <Container className="flex flex-col gap-16">
+        <h1 className="font-display text-3xl leading-snug text-navy md:max-w-3xl md:text-4xl">
+          {content.title}
+        </h1>
+
+        <div className="grid gap-12 md:grid-cols-[1fr_auto]">
+          <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-4">
+              <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+                Mon parcours
+              </h2>
+              {content.bio.split("\n\n").map((paragraph, i) => (
+                <p key={i} className="leading-relaxed text-navy/80">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+                Ma singularité
+              </h2>
+              {content.singularity.split("\n\n").map((paragraph, i) => (
+                <p key={i} className="leading-relaxed text-navy/80">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+                Ma manière d&apos;accompagner
+              </h2>
+              {content.approach.split("\n\n").map((paragraph, i) => (
+                <p key={i} className="leading-relaxed text-navy/80">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-1 flex-col gap-8">
+          <div className="flex flex-col items-start gap-8 md:w-56">
             {content.portraitPhotoUrl ? (
-              <div className="relative aspect-[4/5] w-1/2 overflow-hidden bg-sand/30">
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-sand/30">
                 <Image
                   src={content.portraitPhotoUrl}
                   alt={t("aboutPhotoAlt")}
                   fill
-                  sizes="(min-width: 768px) 25vw, 50vw"
+                  sizes="(min-width: 768px) 224px, 50vw"
                   className="object-cover"
                   priority
                 />
@@ -60,10 +89,18 @@ export default async function AboutPage({
             ) : (
               <PhotoPlaceholder
                 label={t("photoPlaceholder")}
-                className="aspect-[4/5] w-1/2"
+                className="aspect-[3/4] w-full"
               />
             )}
-            <ul className="flex flex-col gap-2 text-sm leading-relaxed text-navy/70">
+          </div>
+        </div>
+
+        {content.credentials.length > 0 && (
+          <div className="flex flex-col gap-4 border-t border-navy/10 pt-10">
+            <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+              Diplômes & certifications
+            </h2>
+            <ul className="flex flex-col gap-2 text-sm leading-relaxed text-navy/70 md:max-w-2xl">
               {content.credentials.map((credential) => (
                 <li key={credential} className="border-l border-gold/60 pl-4">
                   {credential}
@@ -71,7 +108,7 @@ export default async function AboutPage({
               ))}
             </ul>
           </div>
-        </div>
+        )}
 
         <p className="text-center">
           <Link

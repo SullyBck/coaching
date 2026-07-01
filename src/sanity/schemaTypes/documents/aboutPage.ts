@@ -6,16 +6,15 @@ export const aboutPage = defineType({
   type: "document",
   fields: [
     { name: "title", title: "Titre", type: "localeString", validation: (Rule) => Rule.required() },
-    { name: "subtitle", title: "Sous-titre", type: "localeString", validation: (Rule) => Rule.required() },
-    { name: "bio", title: "Parcours", type: "localeText", validation: (Rule) => Rule.required() },
-    { name: "expertise", title: "Expertise hybride", type: "localeText", validation: (Rule) => Rule.required() },
+    { name: "bio", title: "Mon parcours", type: "localeText", validation: (Rule) => Rule.required() },
+    { name: "singularity", title: "Ma singularité", type: "localeText", validation: (Rule) => Rule.required() },
+    { name: "approach", title: "Ma manière d'accompagner", type: "localeText", validation: (Rule) => Rule.required() },
     {
       name: "credentials",
-      title: "Diplômes & expertise",
+      title: "Diplômes & certifications",
       type: "array",
       of: [{ type: "localeString" }],
     },
-    { name: "signature", title: "Phrase de signature", type: "localeString", validation: (Rule) => Rule.required() },
     {
       name: "servicesLinkLabel",
       title: "Libellé du lien vers la page Services",

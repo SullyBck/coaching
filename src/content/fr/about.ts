@@ -1,23 +1,19 @@
 import type { AboutContent } from "../types";
 
 export const about: AboutContent = {
-  title: "Qui suis-je ?",
-  subtitle:
-    "J'accompagne les leaders là où tout se joue : dans l'espace entre la clarté et l'action.",
-  bio:
-    "Depuis plus de 20 ans, j'accompagne dirigeants, cadres seniors et hauts potentiels dans leurs phases critiques : transitions, repositionnements, négociations, crises, reconstruction post-burnout.",
-  expertise:
-    "Mon expertise hybride — RH exécutives, droit et coaching (certifiée ICF) — nourrit une approche à la fois stratégique, humaine, émotionnellement intelligente et entièrement confidentielle.",
+  title:
+    "Une expertise à l'intersection du leadership, des ressources humaines et de l'accompagnement professionnel.",
+  bio: "Depuis plus de vingt ans, j'interviens au cœur des enjeux humains, organisationnels et managériaux. J'accompagne des dirigeants, des managers et des organisations dans des contextes de transformation, de croissance ou de décroissance, de changement et de négociation.\n\nCe parcours m'a donné une compréhension concrète de la vie professionnelle : les décisions à prendre, les rôles qui évoluent, les équilibres à trouver, les relations à gérer, les messages à formuler, les moments où l'on doit se positionner.",
+  singularity:
+    "Je relie trois dimensions souvent traitées séparément :\n\n1. La dimension stratégique : positionnement, trajectoire, leadership situationnel, communication, influence, impact.\n2. La dimension humaine : énergie, confiance, émotions, valeurs, limites, besoin de sens.\n3. La dimension RH et organisationnelle : fonctionnement des entreprises, relations de pouvoir, cadres de décision, points de vigilance.\n\nCette lecture croisée permet d'aborder les situations avec nuance, sans les réduire à un simple problème de carrière ou à une difficulté personnelle.",
+  approach:
+    "Je propose un espace de travail confidentiel, structuré et sans jugement. On y clarifie les situations, vos priorités, les options possibles et les prochaines étapes.\n\nMon rôle n'est pas de décider à votre place, mais de vous aider à construire un plan d'action qui vous corresponde, ainsi que les outils à utiliser pour y parvenir.",
   credentials: [
-    "Coach certifiée (ICF)",
-    "Master de droit — Université Paris I Panthéon-Sorbonne",
-    "DEA RH & Organisations — Paris I Panthéon-Sorbonne",
-    "Formation professionnelle d'avocat — Barreau de Paris",
-    "Praticienne en neurosciences appliquées (stress, transitions, régulation émotionnelle)",
-    "Plus de 20 ans d'expérience internationale en RH exécutives, leadership et gouvernance",
-    "Spécialiste des transitions complexes et des décisions critiques",
+    "MSc en études organisationnelles, ressources humaines et droit du travail — Université Paris I Sorbonne",
+    "Master en économie, management et ressources humaines — Université Paris I Sorbonne",
+    "Coach Exécutif Certifié (Master) — Académie Européenne de Coaching",
+    "Leadership Development Program — ESSEC Business School",
+    "Organizational Design Certification — CIPD, Londres",
   ],
-  signature:
-    "J'aide les leaders à retrouver un axe clair et la capacité de décider, même dans les circonstances les plus exigeantes.",
   servicesLinkLabel: "Accompagnement & services",
 };

@@ -23,9 +23,10 @@ export async function getHomeContent(locale: Locale): Promise<HomeContent> {
       "heroHeading": heroHeading[$locale],
       "heroSubheading": heroSubheading[$locale],
       "intro": intro[$locale],
-      "quoteText": quoteText[$locale],
-      "quoteAttribution": quoteAttribution,
-      "quoteFollowUp": quoteFollowUp[$locale],
+      "whenToContactHeading": whenToContactHeading[$locale],
+      "whenToContactItems": whenToContactItems[]${LOCALIZED_ARRAY_ITEM},
+      "confidentialHeading": confidentialHeading[$locale],
+      "confidentialText": confidentialText[$locale],
       "testimonialsHeading": testimonialsHeading[$locale],
       "aboutLinkLabel": aboutLinkLabel[$locale],
       ambiancePhoto
@@ -37,10 +38,13 @@ export async function getHomeContent(locale: Locale): Promise<HomeContent> {
     heroHeading: data.heroHeading,
     heroSubheading: data.heroSubheading,
     intro: data.intro,
-    quote: {
-      text: data.quoteText,
-      attribution: data.quoteAttribution,
-      followUp: data.quoteFollowUp,
+    whenToContact: {
+      heading: data.whenToContactHeading,
+      items: data.whenToContactItems ?? [],
+    },
+    confidential: {
+      heading: data.confidentialHeading,
+      text: data.confidentialText,
     },
     testimonialsHeading: data.testimonialsHeading,
     aboutLinkLabel: data.aboutLinkLabel,
@@ -54,11 +58,10 @@ export async function getAboutContent(locale: Locale): Promise<AboutContent> {
   const data = await client.fetch(
     `*[_type == "aboutPage"][0]{
       "title": title[$locale],
-      "subtitle": subtitle[$locale],
       "bio": bio[$locale],
-      "expertise": expertise[$locale],
+      "singularity": singularity[$locale],
+      "approach": approach[$locale],
       "credentials": credentials[]${LOCALIZED_ARRAY_ITEM},
-      "signature": signature[$locale],
       "servicesLinkLabel": servicesLinkLabel[$locale],
       portraitPhoto
     }`,
@@ -67,11 +70,10 @@ export async function getAboutContent(locale: Locale): Promise<AboutContent> {
 
   return {
     title: data.title,
-    subtitle: data.subtitle,
     bio: data.bio,
-    expertise: data.expertise,
+    singularity: data.singularity,
+    approach: data.approach,
     credentials: data.credentials ?? [],
-    signature: data.signature,
     servicesLinkLabel: data.servicesLinkLabel,
     portraitPhotoUrl: data.portraitPhoto
       ? urlFor(data.portraitPhoto).width(800).url()
@@ -86,8 +88,8 @@ export async function getServicesContent(locale: Locale): Promise<ServicesConten
       "services": services[]{
         "name": name[$locale],
         "description": description[$locale],
-        "formats": formats[]${LOCALIZED_ARRAY_ITEM},
-        "outcome": outcome[$locale]
+        "workAxes": workAxes[]${LOCALIZED_ARRAY_ITEM},
+        "formats": formats[]${LOCALIZED_ARRAY_ITEM}
       },
       "bookingLinkLabel": bookingLinkLabel[$locale]
     }`,
@@ -96,7 +98,11 @@ export async function getServicesContent(locale: Locale): Promise<ServicesConten
 
   return {
     title: data.title,
-    services: data.services ?? [],
+    services: (data.services ?? []).map((s: { name: string; description: string; workAxes?: string[]; formats?: string[] }) => ({
+      ...s,
+      workAxes: s.workAxes ?? [],
+      formats: s.formats ?? [],
+    })),
     bookingLinkLabel: data.bookingLinkLabel,
   };
 }

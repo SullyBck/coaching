@@ -7,6 +7,8 @@ export const contactPage = defineType({
   fields: [
     { name: "title", title: "Titre", type: "localeString", validation: (Rule) => Rule.required() },
     { name: "subtitle", title: "Sous-titre", type: "localeString", validation: (Rule) => Rule.required() },
+    { name: "howToStartHeading", title: "Titre « Comment commencer ? »", type: "localeString", validation: (Rule) => Rule.required() },
+    { name: "howToStartText", title: "Texte « Comment commencer ? »", type: "localeText", validation: (Rule) => Rule.required() },
     { name: "ctaHeading", title: "Titre de l'appel à l'action", type: "localeString", validation: (Rule) => Rule.required() },
     {
       name: "ctaQualifiers",
@@ -23,13 +25,6 @@ export const contactPage = defineType({
     },
     { name: "phone", title: "Téléphone", type: "string" },
     { name: "location", title: "Lieu", type: "string" },
-    {
-      name: "formIntro",
-      title: "Texte d'introduction du formulaire",
-      type: "localeText",
-      description: "Affiché au-dessus du formulaire de contact général, pour expliquer dans quel cas l'utiliser plutôt que de réserver un créneau directement.",
-      validation: (Rule) => Rule.required(),
-    },
   ],
   preview: {
     select: { title: "title.fr" },

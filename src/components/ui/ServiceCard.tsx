@@ -23,11 +23,19 @@ export function ServiceCard({ service }: { service: Service }) {
       )}
 
       {service.formats.length > 0 && (
-        <ul className="flex flex-col gap-2 border-t border-navy/10 pt-4 text-sm leading-relaxed text-navy/60">
-          {service.formats.map((format) => (
-            <li key={format}>{format}</li>
-          ))}
-        </ul>
+        <div className="flex flex-col gap-3 border-t border-navy/10 pt-5">
+          <p className="text-xs tracking-[0.15em] text-gold uppercase">
+            Format
+          </p>
+          <ul className="flex flex-col gap-3">
+            {service.formats.map((format) => (
+              <li key={format} className="flex gap-3 text-sm leading-relaxed text-navy/70">
+                <span className="mt-2 h-px w-3 shrink-0 bg-gold/50" />
+                {format}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </article>
   );

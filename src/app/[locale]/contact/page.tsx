@@ -42,6 +42,7 @@ export default async function ContactPage({
         </div>
 
         <div className="grid gap-12 md:grid-cols-2">
+          {/* Colonne gauche — formulaire de contact */}
           <div className="flex flex-col gap-6 border-t border-navy/10 pt-8 md:border-t-0 md:border-r md:pr-12 md:pt-0">
             <h2 className="font-display text-2xl text-navy">
               {tContact("panelTitle")}
@@ -49,10 +50,7 @@ export default async function ContactPage({
             {(content.email || content.linkedinUrl) && (
               <div className="flex flex-col gap-1 text-sm text-navy/70">
                 {content.email && (
-                  <a
-                    href={`mailto:${content.email}`}
-                    className="hover:text-gold"
-                  >
+                  <a href={`mailto:${content.email}`} className="hover:text-gold">
                     {content.email}
                   </a>
                 )}
@@ -68,25 +66,35 @@ export default async function ContactPage({
                 )}
               </div>
             )}
-            <p className="leading-relaxed text-navy/80">{content.formIntro}</p>
             <ContactForm />
           </div>
 
-          <div className="flex flex-col gap-6 border-t border-navy/10 pt-8 md:border-t-0 md:pt-0">
-            <h2 className="font-display text-2xl text-navy">
-              {tBooking("heading")}
-            </h2>
-            <p className="text-sm tracking-wide text-navy/60">
-              {content.ctaHeading}
-            </p>
-            <ul className="flex flex-wrap gap-3 text-sm tracking-wide text-navy/60">
-              {content.ctaQualifiers.map((qualifier) => (
-                <li key={qualifier} className="border border-navy/20 px-3 py-1">
-                  {qualifier}
-                </li>
-              ))}
-            </ul>
-            <BookingWidget showHeading={false} />
+          {/* Colonne droite — comment commencer + réservation */}
+          <div className="flex flex-col gap-8 border-t border-navy/10 pt-8 md:border-t-0 md:pt-0">
+            {content.howToStartHeading && (
+              <div className="flex flex-col gap-3">
+                <h2 className="font-display text-2xl text-navy">
+                  {content.howToStartHeading}
+                </h2>
+                <p className="leading-relaxed text-navy/80">
+                  {content.howToStartText}
+                </p>
+              </div>
+            )}
+
+            <div className="flex flex-col gap-4">
+              <h3 className="font-display text-xl text-navy">
+                {content.ctaHeading}
+              </h3>
+              <ul className="flex flex-wrap gap-3 text-sm tracking-wide text-navy/60">
+                {content.ctaQualifiers.map((qualifier) => (
+                  <li key={qualifier} className="border border-navy/20 px-3 py-1">
+                    {qualifier}
+                  </li>
+                ))}
+              </ul>
+              <BookingWidget showHeading={false} />
+            </div>
           </div>
         </div>
       </Container>

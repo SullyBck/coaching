@@ -63,13 +63,14 @@ export interface ResourcesContent {
 export interface ContactContent {
   title: string;
   subtitle: string;
+  howToStartHeading: string;
+  howToStartText: string;
   ctaHeading: string;
   ctaQualifiers: string[];
   email?: string;
   linkedinUrl?: string;
   phone?: string;
   location?: string;
-  formIntro: string;
 }
 
 export interface AppointmentSlot {

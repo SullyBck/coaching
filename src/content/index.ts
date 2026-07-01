@@ -156,13 +156,14 @@ export async function getContactContent(locale: Locale): Promise<ContactContent>
     `*[_type == "contactPage"][0]{
       "title": title[$locale],
       "subtitle": subtitle[$locale],
+      "howToStartHeading": howToStartHeading[$locale],
+      "howToStartText": howToStartText[$locale],
       "ctaHeading": ctaHeading[$locale],
       "ctaQualifiers": ctaQualifiers[]${LOCALIZED_ARRAY_ITEM},
       email,
       linkedinUrl,
       phone,
-      location,
-      "formIntro": formIntro[$locale]
+      location
     }`,
     { locale },
   );
@@ -170,13 +171,14 @@ export async function getContactContent(locale: Locale): Promise<ContactContent>
   return {
     title: data.title,
     subtitle: data.subtitle,
+    howToStartHeading: data.howToStartHeading,
+    howToStartText: data.howToStartText,
     ctaHeading: data.ctaHeading,
     ctaQualifiers: data.ctaQualifiers ?? [],
     email: data.email,
     linkedinUrl: data.linkedinUrl,
     phone: data.phone,
     location: data.location,
-    formIntro: data.formIntro,
   };
 }
 

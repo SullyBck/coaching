@@ -29,7 +29,11 @@ export interface AboutContent {
   title: string;
   intro: string;
   bio: string;
-  singularity: string;
+  singularity: {
+    intro: string;
+    items: string[];
+    conclusion: string;
+  };
   approach: string;
   credentials: string[];
   frameHeading: string;

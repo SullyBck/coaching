@@ -25,7 +25,7 @@ export default async function HomePage({
 
   return (
     <>
-      <Section>
+      <Section compact>
         <Container className="flex flex-col gap-6 text-center md:mx-auto md:max-w-3xl">
           <p className="text-sm tracking-[0.2em] text-gold uppercase">
             {content.heroSubheading}
@@ -61,7 +61,7 @@ export default async function HomePage({
       </Container>
 
       {content.whenToContact.heading && (
-        <Section>
+        <Section compact>
           <Container className="md:mx-auto md:max-w-3xl">
             <div className="flex flex-col gap-6">
               <h2 className="font-display text-2xl text-navy">
@@ -88,7 +88,7 @@ export default async function HomePage({
       )}
 
       {content.difference.heading && (
-        <Section className="bg-sand/30">
+        <Section compact className="bg-sand/30">
           <Container className="md:mx-auto md:max-w-3xl">
             <div className="flex flex-col gap-6">
               <h2 className="font-display text-2xl text-navy">
@@ -105,7 +105,7 @@ export default async function HomePage({
       )}
 
       {content.workTogether.heading && (
-        <Section>
+        <Section compact>
           <Container className="md:mx-auto md:max-w-3xl">
             <div className="flex flex-col gap-6">
               <h2 className="font-display text-2xl text-navy">
@@ -127,7 +127,7 @@ export default async function HomePage({
       )}
 
       {testimonials.length > 0 && (
-        <Section>
+        <Section compact>
           <Container>
             {content.testimonialsHeading && (
               <h2 className="mb-8 font-display text-2xl text-navy md:mx-auto md:max-w-3xl">

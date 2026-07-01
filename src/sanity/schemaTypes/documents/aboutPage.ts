@@ -7,8 +7,15 @@ export const aboutPage = defineType({
   fields: [
     { name: "title", title: "Titre", type: "localeString", validation: (Rule) => Rule.required() },
     { name: "intro", title: "Texte d'introduction", type: "localeText", validation: (Rule) => Rule.required() },
-    { name: "bio", title: "Qui suis-je ?", type: "localeText", validation: (Rule) => Rule.required() },
-    { name: "singularity", title: "Ce qui me différencie", type: "localeText", validation: (Rule) => Rule.required() },
+    { name: "bio", title: "Mon parcours", type: "localeText", validation: (Rule) => Rule.required() },
+    { name: "singularityIntro", title: "Ce qui me différencie — phrase d'intro", type: "localeString", validation: (Rule) => Rule.required() },
+    {
+      name: "singularityItems",
+      title: "Ce qui me différencie — liste",
+      type: "array",
+      of: [{ type: "localeString" }],
+    },
+    { name: "singularityConclusion", title: "Ce qui me différencie — conclusion", type: "localeText", validation: (Rule) => Rule.required() },
     { name: "approach", title: "Ma manière d'accompagner", type: "localeText", validation: (Rule) => Rule.required() },
     {
       name: "credentials",

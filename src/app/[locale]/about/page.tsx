@@ -39,19 +39,21 @@ export default async function AboutPage({
         <div className="grid gap-12 md:grid-cols-[3fr_2fr] md:gap-16 md:items-start">
 
           {/* Colonne gauche — texte */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-6">
             <h1 className="font-display text-3xl leading-snug text-navy md:text-4xl">
               {content.title}
             </h1>
 
-            {content.intro.split("\n\n").map((paragraph, i) => (
-              <p key={i} className="leading-relaxed text-navy/80">
-                {paragraph}
-              </p>
-            ))}
+            <div className="flex flex-col gap-2">
+              {content.intro.split("\n\n").map((paragraph, i) => (
+                <p key={i} className="leading-relaxed text-navy/80">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
-            <div className="flex flex-col gap-4">
-              <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+            <div className="flex flex-col gap-2">
+              <h2 className="text-sm font-semibold tracking-[0.15em] text-[#96742c] uppercase">
                 {tAbout("whoAmI")}
               </h2>
               {content.bio.split("\n\n").map((paragraph, i) => (
@@ -74,19 +76,26 @@ export default async function AboutPage({
               )}
             </div>
 
-            <div className="flex flex-col gap-4">
-              <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+            <div className="flex flex-col gap-2">
+              <h2 className="text-sm font-semibold tracking-[0.15em] text-[#96742c] uppercase">
                 {tAbout("differentiator")}
               </h2>
-              {content.singularity.split("\n\n").map((paragraph, i) => (
-                <p key={i} className="leading-relaxed text-navy/80 whitespace-pre-line">
-                  {paragraph}
-                </p>
-              ))}
+              <p className="leading-relaxed text-navy/80">{content.singularity.intro}</p>
+              {content.singularity.items.length > 0 && (
+                <ul className="flex flex-col gap-1.5">
+                  {content.singularity.items.map((item) => (
+                    <li key={item} className="flex gap-2 leading-relaxed text-navy/80">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold/60" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p className="leading-relaxed text-navy/80">{content.singularity.conclusion}</p>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+            <div className="flex flex-col gap-2">
+              <h2 className="text-sm font-semibold tracking-[0.15em] text-[#96742c] uppercase">
                 {tAbout("approach")}
               </h2>
               {content.approach.split("\n\n").map((paragraph, i) => (
@@ -107,7 +116,7 @@ export default async function AboutPage({
           </div>
 
           {/* Colonne droite — photo + diplômes + cadre */}
-          <div className="flex flex-col gap-8 md:sticky md:top-12">
+          <div className="flex flex-col gap-6 md:sticky md:top-12">
             {content.portraitPhotoUrl ? (
               <Image
                 src={content.portraitPhotoUrl}
@@ -126,7 +135,7 @@ export default async function AboutPage({
 
             {content.credentials.length > 0 && (
               <div className="flex flex-col gap-3">
-                <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+                <h2 className="text-sm font-semibold tracking-[0.15em] text-[#96742c] uppercase">
                   {tAbout("credentials")}
                 </h2>
                 <ul className="flex flex-col gap-2 text-sm leading-relaxed text-navy/70">
@@ -141,7 +150,7 @@ export default async function AboutPage({
 
             {content.frameItems.length > 0 && (
               <div className="flex flex-col gap-3">
-                <h2 className="text-xs tracking-[0.2em] text-gold uppercase">
+                <h2 className="text-sm font-semibold tracking-[0.15em] text-[#96742c] uppercase">
                   {content.frameHeading}
                 </h2>
                 <ul className="flex flex-col gap-2 text-sm leading-relaxed text-navy/70">

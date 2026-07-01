@@ -2,7 +2,7 @@
   "nav": {
     "home": "Accueil",
     "about": "À propos",
-    "services": "Services",
+    "services": "Accompagnements",
     "resources": "Ressources",
     "contact": "Contact"
   },
@@ -39,7 +39,19 @@
     "genericError": "Une erreur est survenue, merci de réessayer."
   },
   "contact": {
-    "panelTitle": "Me contacter"
+    "panelTitle": "Me contacter",
+    "directTitle": "Contact direct"
+  },
+  "about": {
+    "whoAmI": "Qui suis-je ?",
+    "differentiator": "Ce qui me différencie",
+    "approach": "Ma manière d'accompagner",
+    "credentials": "Formation & références",
+    "linkedinCta": "Pour en savoir plus sur mon parcours :"
+  },
+  "serviceCard": {
+    "workAxes": "Axes de travail",
+    "format": "Format"
   },
   "common": {
     "comingSoon": "À venir",

@@ -1,19 +1,27 @@
 import type { AboutContent } from "../types";
 
 export const about: AboutContent = {
-  title:
-    "Expertise at the intersection of leadership, human resources, and professional development.",
-  bio: "For more than twenty years, I have worked at the heart of human, organisational, and managerial challenges. I support executives, managers, and organisations through transformation, growth or downsizing, change, and negotiation.\n\nThis career has given me a concrete understanding of professional life: the decisions to be made, the roles that evolve, the balances to find, the relationships to manage, the messages to craft, the moments when one must take a stand.",
+  title: "An HR, human and strategic perspective on professional life",
+  intro:
+    "I support executives, managers, senior professionals, high-potential talent and professionals in transition, when they want to step back without losing touch with reality: the organisation, the relationships, the constraints, the opportunities and their own aspirations.\n\nMy approach connects the person, the role and the environment. That is often where important decisions play out — rarely on a single level, rarely with a ready-made answer.",
+  bio: "For more than 20 years, I have worked at the heart of human, organisational and managerial challenges.\n\nI have supported executives, managers, teams and organisations through transformation, growth, tension, negotiation or change. I did this within multinationals and mid-sized companies as an HR Executive, as well as within start-ups where everything had to be built.\n\nThis experience gave me a concrete understanding of professional life: roles that evolve, balances to find, relationships to manage, messages to craft, decisions to prepare, and the moments when one must find a fairer place.",
   singularity:
-    "I connect three dimensions that are often treated separately:\n\n1. The strategic dimension: positioning, career trajectory, situational leadership, communication, influence, impact.\n2. The human dimension: energy, confidence, emotions, values, limits, the need for meaning.\n3. The HR and organisational dimension: how organisations work, power relationships, decision-making frameworks, key watchpoints.\n\nThis cross-reading allows situations to be approached with nuance, without reducing them to a simple career problem or a personal difficulty.",
+    "I connect three dimensions that are often treated separately:\n\nThe professional and strategic dimension: role, trajectory, environment, communication, influence.\n\nThe human dimension: energy, confidence, emotions, motivation, limits, need for meaning.\n\nThe HR and organisational dimension: how organisations function, power relationships, decision-making frameworks, points of vigilance.\n\nThis cross-reading allows a situation to be approached with nuance, without reducing it to an individual difficulty, a performance topic, or a simple career choice.",
   approach:
-    "I offer a confidential, structured, and non-judgmental working space. Together we clarify situations, priorities, possible options, and next steps.\n\nMy role is not to decide for you, but to help you build a plan of action that fits you, along with the tools to get there.",
+    "I offer a structured, direct and non-judgmental working space. Together we lay out what is happening, what weighs on you, what can be adjusted, and what calls for a decision or a concrete action.\n\nThe engagement can be deep or very targeted: preparing to take on a role, regaining momentum, managing better, getting through a period of tension, working on your positioning, or building a new professional step.\n\nMy role is not to decide for you. It is to help you regain confidence in your judgment, organise your options, and move forward in a way that suits you.",
   credentials: [
-    "MSc in Organisational Studies, Human Resources and Employment Law — University Paris I Sorbonne",
-    "Master's degree in Economics, Management and HR — University Paris I Sorbonne",
-    "Certified Executive Coach (Master) — Académie Européenne de Coaching",
-    "Leadership Development Program — ESSEC Business School",
-    "Organizational Design Certification — CIPD, London",
+    "More than 20 years of experience in executive HR, leadership, employment law and governance.",
+    "Master Coach (MCC) — Académie Européenne de Coaching.",
+    "DEA in Organisational Development and Human Resources — Université Paris I Panthéon-Sorbonne.",
+    "Master's degree in Management and Human Resources — Université Paris I Panthéon-Sorbonne.",
+    "Training in neuroscience applied to stress, transitions and emotional regulation.",
   ],
-  servicesLinkLabel: "Coaching & Services",
+  frameHeading: "My framework",
+  frameItems: [
+    "No ready-made recipe.",
+    "No artificial promise.",
+    "No judgment.",
+    "Work grounded in your real situation, with a human, precise and structured approach.",
+  ],
+  servicesLinkLabel: "Discover the engagements",
 };

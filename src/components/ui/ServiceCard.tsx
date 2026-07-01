@@ -1,15 +1,29 @@
 import type { Service } from "@/content/types";
 
-export function ServiceCard({ service }: { service: Service }) {
+export function ServiceCard({
+  service,
+  workAxesLabel,
+  formatLabel,
+}: {
+  service: Service;
+  workAxesLabel: string;
+  formatLabel: string;
+}) {
   return (
     <article className="flex flex-col gap-5 border border-navy/10 p-8">
       <h3 className="font-display text-xl text-navy">{service.name}</h3>
-      <p className="leading-relaxed text-navy/80">{service.description}</p>
+      <div className="flex flex-col gap-3">
+        {service.description.split("\n\n").map((paragraph, i) => (
+          <p key={i} className="leading-relaxed text-navy/80">
+            {paragraph}
+          </p>
+        ))}
+      </div>
 
       {service.workAxes.length > 0 && (
         <div className="flex flex-col gap-2">
           <p className="text-xs tracking-[0.15em] text-gold uppercase">
-            Axes de travail
+            {workAxesLabel}
           </p>
           <ul className="flex flex-col gap-1 text-sm leading-relaxed text-navy/70">
             {service.workAxes.map((axis) => (
@@ -25,7 +39,7 @@ export function ServiceCard({ service }: { service: Service }) {
       {service.formats.length > 0 && (
         <div className="flex flex-col gap-3 border-t border-navy/10 pt-5">
           <p className="text-xs tracking-[0.15em] text-gold uppercase">
-            Format
+            {formatLabel}
           </p>
           <ul className="flex flex-col gap-3">
             {service.formats.map((format) => (

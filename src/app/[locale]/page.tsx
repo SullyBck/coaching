@@ -5,7 +5,7 @@ import { getHomeContent, getTestimonials } from "@/content";
 import type { Locale } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { TestimonialAccordion } from "@/components/ui/TestimonialAccordion";
+import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { getTranslations } from "next-intl/server";
 
@@ -67,6 +67,11 @@ export default async function HomePage({
               <h2 className="font-display text-2xl text-navy">
                 {content.whenToContact.heading}
               </h2>
+              {content.whenToContact.intro && (
+                <p className="leading-relaxed text-navy/80">
+                  {content.whenToContact.intro}
+                </p>
+              )}
               {content.whenToContact.items.length > 0 && (
                 <ul className="flex flex-col gap-3 text-navy/80">
                   {content.whenToContact.items.map((item) => (
@@ -82,14 +87,14 @@ export default async function HomePage({
         </Section>
       )}
 
-      {content.confidential.heading && (
+      {content.difference.heading && (
         <Section className="bg-sand/30">
           <Container className="md:mx-auto md:max-w-3xl">
             <div className="flex flex-col gap-6">
               <h2 className="font-display text-2xl text-navy">
-                {content.confidential.heading}
+                {content.difference.heading}
               </h2>
-              {content.confidential.text.split("\n\n").map((paragraph, i) => (
+              {content.difference.text.split("\n\n").map((paragraph, i) => (
                 <p key={i} className="leading-relaxed text-navy/80">
                   {paragraph}
                 </p>
@@ -99,15 +104,41 @@ export default async function HomePage({
         </Section>
       )}
 
-      {testimonials.length > 0 && (
+      {content.workTogether.heading && (
         <Section>
           <Container className="md:mx-auto md:max-w-3xl">
+            <div className="flex flex-col gap-6">
+              <h2 className="font-display text-2xl text-navy">
+                {content.workTogether.heading}
+              </h2>
+              {content.workTogether.items.length > 0 && (
+                <ul className="flex flex-col gap-3 text-navy/80">
+                  {content.workTogether.items.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1 w-4 shrink-0 bg-gold/60" />
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      {testimonials.length > 0 && (
+        <Section>
+          <Container>
             {content.testimonialsHeading && (
-              <h2 className="mb-8 font-display text-2xl text-navy">
+              <h2 className="mb-8 font-display text-2xl text-navy md:mx-auto md:max-w-3xl">
                 {content.testimonialsHeading}
               </h2>
             )}
-            <TestimonialAccordion testimonials={testimonials} />
+            <div className="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory">
+              {testimonials.map((testimonial, index) => (
+                <TestimonialCard key={index} testimonial={testimonial} />
+              ))}
+            </div>
             <p className="mt-10 text-center">
               <Link
                 href="/about"

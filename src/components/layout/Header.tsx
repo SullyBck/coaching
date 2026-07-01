@@ -17,6 +17,7 @@ export async function Header() {
     { href: "/services", label: t("services") },
     { href: "/contact", label: t("contact") },
   ] as const;
+  // Page Ressources conservée en code/CMS mais retirée du menu, conformément au v3.
 
   return (
     <header className="border-b border-navy/10 bg-white">

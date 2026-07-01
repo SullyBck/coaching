@@ -9,11 +9,16 @@ export interface HomeContent {
   intro: string;
   whenToContact: {
     heading: string;
+    intro: string;
     items: string[];
   };
-  confidential: {
+  difference: {
     heading: string;
     text: string;
+  };
+  workTogether: {
+    heading: string;
+    items: string[];
   };
   testimonialsHeading?: string;
   aboutLinkLabel: string;
@@ -22,10 +27,13 @@ export interface HomeContent {
 
 export interface AboutContent {
   title: string;
+  intro: string;
   bio: string;
   singularity: string;
   approach: string;
   credentials: string[];
+  frameHeading: string;
+  frameItems: string[];
   servicesLinkLabel: string;
   portraitPhotoUrl?: string;
 }
@@ -39,7 +47,12 @@ export interface Service {
 
 export interface ServicesContent {
   title: string;
+  subtitle: string;
   services: Service[];
+  hrInsightHeading: string;
+  hrInsightText: string;
+  howToStartHeading: string;
+  howToStartText: string;
   bookingLinkLabel: string;
 }
 
@@ -62,11 +75,12 @@ export interface ResourcesContent {
 
 export interface ContactContent {
   title: string;
-  subtitle: string;
-  howToStartHeading: string;
-  howToStartText: string;
+  intro: string;
   ctaHeading: string;
   ctaQualifiers: string[];
+  contactFormIntro: string;
+  confidentialityHeading: string;
+  confidentialityText: string;
   email?: string;
   linkedinUrl?: string;
   phone?: string;

@@ -1,23 +1,37 @@
 import type { HomeContent } from "../types";
 
 export const home: HomeContent = {
-  heroHeading: "Redonner de la cohérence à votre trajectoire.",
-  heroSubheading: "Coaching exécutif & Leadership",
+  heroSubheading: "Coaching professionnel, RH & leadership",
+  heroHeading: "Mettre à plat la situation. Prendre position. Préparer la suite.",
   intro:
-    "Mettre à plat votre situation, renforcer votre posture et avancer dans vos transitions professionnelles.\n\nJ'accompagne les dirigeants, managers et cadres dans les moments où ils souhaitent prendre du recul, préparer une évolution, retrouver de l'élan ou aborder une étape importante avec plus de justesse.",
+    "J'accompagne les dirigeants, managers et professionnels qui souhaitent avancer concrètement sur une problématique professionnelle, ou qui veulent faire le point sur leur rôle, leur trajectoire ou une étape professionnelle importante.\n\nSelon les besoins, l'accompagnement peut porter sur une évolution de poste, un repositionnement ou un nouveau projet — mais pas seulement.",
   whenToContact: {
-    heading: "Quand me solliciter ?",
+    heading: "Quand me solliciter",
+    intro:
+      "Quand vous avez besoin de prendre du recul, mais aussi de repartir avec une manière d'agir plus construite, plus alignée avec vos priorités.",
     items: [
-      "préparer une évolution de poste ou une prise de fonction ;",
-      "renforcer votre posture managériale ou votre impact ;",
-      "réfléchir à une transition ou à un repositionnement ;",
-      "structurer un nouveau projet professionnel ;",
-      "sortir d'une période de doute ou de dispersion.",
+      "Préparer une évolution de poste ou une prise de fonction.",
+      "Travailler votre leadership, votre impact ou votre manière de manager.",
+      "Préparer une discussion importante, un entretien ou une négociation.",
+      "Vous repositionner après une période de doute, de fatigue ou de tension.",
+      "Construire un nouveau projet professionnel.",
+      "Mieux formuler vos priorités, vos limites ou votre prochaine étape.",
     ],
   },
-  confidential: {
-    heading: "Un accompagnement confidentiel, concret et sur mesure",
-    text: "L'objectif n'est pas de vous faire entrer dans une case. Il est de partir de votre situation réelle, de vos priorités et de ce que vous souhaitez construire — ou de clarifier tout cela ensemble.\n\nChaque accompagnement est adapté à votre contexte, à votre rythme et à vos objectifs. Nous travaillons à la fois sur votre positionnement, votre communication, vos choix et votre capacité à agir dans l'environnement professionnel qui est le vôtre.\n\nL'approche est directe, humaine et structurée. Nous créons un espace pour prendre du recul, décider plus sereinement et avancer de façon plus alignée.",
+  difference: {
+    heading: "Ma différence",
+    text: "Le coaching ne se limite pas à l'introspection. Nous regardons ensemble le rôle que vous occupez, le contexte, les relations, les marges de manœuvre, les messages à formuler et l'énergie disponible.\n\nCe croisement entre accompagnement, expérience en tant que RH senior et membre de Comités Exécutifs et de Conseils d'Administration, et lecture des organisations, permet de travailler une situation dans son ensemble, sans la réduire à un problème personnel ou à une question de carrière.",
+  },
+  workTogether: {
+    heading: "Ce que l'on peut travailler ensemble",
+    items: [
+      "Votre rôle et votre place.",
+      "Votre communication et votre influence.",
+      "Vos décisions et vos marges d'action.",
+      "Votre énergie et vos limites.",
+      "Votre récit professionnel.",
+      "Votre prochaine étape.",
+    ],
   },
   testimonialsHeading: "Ce qu'ils en disent",
   aboutLinkLabel: "En savoir plus",

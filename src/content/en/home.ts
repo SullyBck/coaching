@@ -1,23 +1,37 @@
 import type { HomeContent } from "../types";
 
 export const home: HomeContent = {
-  heroHeading: "Bringing coherence back to your career path.",
-  heroSubheading: "Executive Coaching & Leadership",
+  heroSubheading: "Professional, HR & leadership coaching",
+  heroHeading: "Take stock. Take a stand. Prepare what comes next.",
   intro:
-    "Clarifying your situation, strengthening your presence, and moving forward through your professional transitions.\n\nI support executives, managers, and senior professionals through the moments when they want to step back, prepare a transition, regain momentum, or approach a key stage with greater clarity.",
+    "I support executives, managers and professionals who want to move forward concretely on a professional issue, or who want to take stock of their role, their trajectory or an important professional step.\n\nDepending on the need, the engagement can address a change of role, a repositioning or a new project — but not only that.",
   whenToContact: {
-    heading: "When to reach out?",
+    heading: "When to reach out",
+    intro:
+      "When you need to step back, but also to leave with a more structured way of acting, more aligned with your priorities.",
     items: [
-      "preparing a new role or a step up in responsibilities;",
-      "strengthening your leadership presence and impact;",
-      "thinking through a transition or repositioning;",
-      "structuring a new professional project;",
-      "getting out of a period of doubt or scattered focus.",
+      "Prepare a change of role or a new position.",
+      "Work on your leadership, your impact or the way you manage.",
+      "Prepare an important conversation, an interview or a negotiation.",
+      "Reposition yourself after a period of doubt, fatigue or tension.",
+      "Build a new professional project.",
+      "Better articulate your priorities, your limits or your next step.",
     ],
   },
-  confidential: {
-    heading: "A confidential, concrete, and tailored approach",
-    text: "The goal is not to fit you into a box. It is to start from your actual situation, your priorities, and what you want to build — or to clarify all of that together.\n\nEach engagement is adapted to your context, your pace, and your goals. We work on your positioning, your communication, your choices, and your ability to act within your professional environment.\n\nThe approach is direct, human, and structured. Together we create a space to step back, decide with greater clarity, and move forward in a more aligned way.",
+  difference: {
+    heading: "My difference",
+    text: "Coaching is not limited to introspection. Together we look at the role you hold, the context, the relationships, the room for manoeuvre, the messages to formulate and the energy available.\n\nThis intersection between coaching, experience as a senior HR executive and member of Executive Committees and Boards of Directors, and a reading of organisations, makes it possible to work on a situation as a whole, without reducing it to a personal problem or a career question.",
+  },
+  workTogether: {
+    heading: "What we can work on together",
+    items: [
+      "Your role and your place.",
+      "Your communication and your influence.",
+      "Your decisions and your room for action.",
+      "Your energy and your limits.",
+      "Your professional narrative.",
+      "Your next step.",
+    ],
   },
   testimonialsHeading: "What they say",
   aboutLinkLabel: "Learn more",

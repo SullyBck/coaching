@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "services": "Services",
+    "services": "Engagements",
     "resources": "Resources",
     "contact": "Contact"
   },
@@ -39,7 +39,19 @@
     "genericError": "Something went wrong, please try again."
   },
   "contact": {
-    "panelTitle": "Contact me"
+    "panelTitle": "Contact me",
+    "directTitle": "Direct contact"
+  },
+  "about": {
+    "whoAmI": "Who am I?",
+    "differentiator": "What sets me apart",
+    "approach": "My way of coaching",
+    "credentials": "Training & references",
+    "linkedinCta": "To learn more about my background:"
+  },
+  "serviceCard": {
+    "workAxes": "Areas of work",
+    "format": "Format"
   },
   "common": {
     "comingSoon": "Coming soon",

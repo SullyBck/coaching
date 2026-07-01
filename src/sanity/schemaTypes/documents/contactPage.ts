@@ -6,16 +6,17 @@ export const contactPage = defineType({
   type: "document",
   fields: [
     { name: "title", title: "Titre", type: "localeString", validation: (Rule) => Rule.required() },
-    { name: "subtitle", title: "Sous-titre", type: "localeString", validation: (Rule) => Rule.required() },
-    { name: "howToStartHeading", title: "Titre « Comment commencer ? »", type: "localeString", validation: (Rule) => Rule.required() },
-    { name: "howToStartText", title: "Texte « Comment commencer ? »", type: "localeText", validation: (Rule) => Rule.required() },
-    { name: "ctaHeading", title: "Titre de l'appel à l'action", type: "localeString", validation: (Rule) => Rule.required() },
+    { name: "intro", title: "Texte d'introduction", type: "localeText", validation: (Rule) => Rule.required() },
+    { name: "ctaHeading", title: "Titre « Prendre rendez-vous »", type: "localeString", validation: (Rule) => Rule.required() },
     {
       name: "ctaQualifiers",
       title: "Qualificatifs (ex. 30 minutes, confidentiel...)",
       type: "array",
       of: [{ type: "localeString" }],
     },
+    { name: "contactFormIntro", title: "Phrase d'intro « Me contacter »", type: "localeText", validation: (Rule) => Rule.required() },
+    { name: "confidentialityHeading", title: "Titre « Confidentialité »", type: "localeString", validation: (Rule) => Rule.required() },
+    { name: "confidentialityText", title: "Texte « Confidentialité »", type: "localeText", validation: (Rule) => Rule.required() },
     { name: "email", title: "Email de contact", type: "string" },
     {
       name: "linkedinUrl",

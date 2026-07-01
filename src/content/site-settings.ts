@@ -4,16 +4,16 @@ import type { SiteSettings } from "./types";
 export const siteSettings: Record<Locale, SiteSettings> = {
   fr: {
     brandName: "Ségolène Falandry",
-    tagline: "Aligner. Décider. Avancer.",
-    defaultTitle: "Ségolène Falandry — Coaching exécutif",
+    tagline: "Coaching professionnel, RH & leadership.",
+    defaultTitle: "Ségolène Falandry — Coaching professionnel, RH & leadership",
     defaultDescription:
-      "Coaching exécutif pour dirigeants, cadres seniors et hauts potentiels en transition. Clarté, alignement, direction.",
+      "Coaching professionnel, RH & leadership pour dirigeants, managers et professionnels en évolution. Clarté, alignement, direction.",
   },
   en: {
     brandName: "Ségolène Falandry",
-    tagline: "Where leaders regain their axis.",
-    defaultTitle: "Ségolène Falandry — Executive Coaching",
+    tagline: "Professional, HR & leadership coaching.",
+    defaultTitle: "Ségolène Falandry — Professional, HR & Leadership Coaching",
     defaultDescription:
-      "Executive coaching for leaders, senior executives, and high-potential talent in transition. Clarity, alignment, direction.",
+      "Professional, HR and leadership coaching for executives, managers and professionals in transition. Clarity, alignment, direction.",
   },
 };

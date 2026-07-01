@@ -76,7 +76,7 @@ export async function getAboutContent(locale: Locale): Promise<AboutContent> {
     credentials: data.credentials ?? [],
     servicesLinkLabel: data.servicesLinkLabel,
     portraitPhotoUrl: data.portraitPhoto
-      ? urlFor(data.portraitPhoto).width(800).url()
+      ? urlFor(data.portraitPhoto).width(1200).url()
       : undefined,
   };
 }
